@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "GianFTZ <gianfelipetz@hotmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
 }
