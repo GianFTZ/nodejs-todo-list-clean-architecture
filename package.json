@@ -5,6 +5,8 @@
   "author": "GianFTZ <gianfelipetz@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^29.4.1",
+    "jest": "^29.5.0",
     "typescript": "^4.9.5"
   }
 }
