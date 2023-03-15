@@ -3,13 +3,18 @@ import { IAuthAdapter } from "../../contracts/auth-adapter";
 import prisma from "./connection";
 
 export class PrismaAuth implements IAuthAdapter {
-  main (login: LoginDto): boolean {
+  async main (login: LoginDto): Promise<boolean> {
     try {
-      prisma.user.findUnique({
+      const response = await prisma.user.findUnique({
         where: {
           username: login.username,
+          password: login.password
         }
       })
+      if(!response){
+        return false
+      }
+      return true
     } catch (err) {
       return false
     }
