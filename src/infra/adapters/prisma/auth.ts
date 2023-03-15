@@ -4,6 +4,10 @@ import prisma from "./connection";
 
 export class PrismaAuth implements IAuthAdapter {
   main (login: LoginDto): boolean {
-    
+    try {
+      
+    } catch (err) {
+      return false
+    }
   }
 }
