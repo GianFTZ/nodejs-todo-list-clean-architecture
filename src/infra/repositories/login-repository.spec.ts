@@ -43,5 +43,4 @@ describe('login repository', ()=> {
     const response = await sut.main(fakeData)
     expect(response.status).toBe(200)
   })
-  
 })
