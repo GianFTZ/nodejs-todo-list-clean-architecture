@@ -1,6 +1,6 @@
 import { LoginDto } from "../../domain/use-cases/dtos/loginDto"
 import { IAuthValidator } from "../contracts/auth-validator"
-import { loginRepository } from "./login-repository"
+import { LoginRepository } from "./login-repository"
 
 const makeMock = () => {
   class FakeAuthValidatorStub implements IAuthValidator {
@@ -23,7 +23,7 @@ const makeMock = () => {
 
 const makeSut = () => {
   const { mockAuthValidator, mockJwt } = makeMock()
-  const sut = new loginRepository(mockAuthValidator, mockJwt)
+  const sut = new LoginRepository(mockAuthValidator, mockJwt)
   return {
     sut,
     mockAuthValidator
@@ -44,8 +44,8 @@ describe('login repository', ()=> {
 
   test('return 200 if registered login', async () => {
     const fakeData = {
-      username: 'not_registered_username',
-      password: 'not_registered_password'
+      username: 'registered_username',
+      password: 'registered_password'
     }
     const { sut } = makeSut()
     const response = await sut.main(fakeData)
