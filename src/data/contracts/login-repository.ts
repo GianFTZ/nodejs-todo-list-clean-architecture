@@ -1,5 +1,5 @@
 import { Http } from "../../utils/http/http";
-import { LoginModel } from "../model/login";
+import { LoginModel } from "../models/login";
 
 export interface ILoginRepository {
   main: (login: LoginModel) => Promise<Http.Response> 
