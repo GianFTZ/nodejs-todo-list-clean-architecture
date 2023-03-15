@@ -9,4 +9,5 @@ export type Todo = {
   id: string
   authorId: string
   author: string
+  title: string
 }
