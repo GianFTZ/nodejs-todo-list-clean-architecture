@@ -32,4 +32,10 @@ describe('create todo service', ()=> {
     const response = await sut.create({ title: 'valid_title' }, 'valid_username')
     expect(response instanceof Error).toBe(true)
   })
+
+  test('return 200 if repository returns', async () => {
+    const { sut } = makeSut()
+    const response = await sut.create({ title: 'valid_title' }, 'valid_username')
+    expect(response).toBe('valid_title')
+  })
 })
