@@ -5,7 +5,11 @@ import prisma from "./connection";
 export class PrismaAuth implements IAuthAdapter {
   main (login: LoginDto): boolean {
     try {
-      
+      prisma.user.findUnique({
+        where: {
+          username: login.username,
+        }
+      })
     } catch (err) {
       return false
     }
