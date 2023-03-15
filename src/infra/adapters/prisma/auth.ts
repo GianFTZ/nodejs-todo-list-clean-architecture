@@ -2,10 +2,11 @@ import { LoginDto } from "../../../domain/use-cases/dtos/loginDto";
 import { IAuthAdapter } from "../../contracts/auth-adapter";
 import prisma from "./connection";
 
-export class PrismaAuth implements IAuthAdapter {
-  async main (login: LoginDto): Promise<boolean> {
+// export class PrismaAuth implements IAuthAdapter {
+export class PrismaAuth {
+  async main (login: LoginDto): Promise<any> {
     try {
-      const response = await prisma.user.findUnique({
+      const response = await prisma.user.findFirst({
         where: {
           username: login.username,
           password: login.password

@@ -8,14 +8,22 @@ const makeMock = () => {
       return true
     }
   }
+  class FakeJwtStub {
+    async getToken(){
+      return {
+        token: 'valid_token'
+      }
+    }
+  }
   return {
-    mockAuthValidator: new FakeAuthValidatorStub()
+    mockAuthValidator: new FakeAuthValidatorStub(),
+    mockJwt: new FakeJwtStub()
   }
 }
 
 const makeSut = () => {
-  const { mockAuthValidator } = makeMock()
-  const sut = new loginRepository(mockAuthValidator)
+  const { mockAuthValidator, mockJwt } = makeMock()
+  const sut = new loginRepository(mockAuthValidator, mockJwt)
   return {
     sut,
     mockAuthValidator
