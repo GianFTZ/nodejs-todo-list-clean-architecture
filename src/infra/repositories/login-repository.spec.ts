@@ -33,5 +33,15 @@ describe('login repository', ()=> {
     const response = await sut.main(fakeData)
     expect(response.status).toBe(403)
   })
+
+  test('return 200 if registered login', async () => {
+    const fakeData = {
+      username: 'not_registered_username',
+      password: 'not_registered_password'
+    }
+    const { sut } = makeSut()
+    const response = await sut.main(fakeData)
+    expect(response.status).toBe(200)
+  })
   
 })
