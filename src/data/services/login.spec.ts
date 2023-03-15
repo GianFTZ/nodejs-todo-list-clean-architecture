@@ -6,7 +6,7 @@ import { LoginService } from "./login"
 const makeMock = () => {
   class FakeLoginRepositoryStub implements ILoginRepository {
     async main(login: LoginDto): Promise<Http.Response> {
-      return { status: 200, body: 'valid_body' }
+      return { status: 200, body: { token: "valid_token" } }
     }
   }
   return {
@@ -34,4 +34,15 @@ describe('user login service', ()=> {
     const response = await sut.login(fakeData)
     expect(response instanceof Error).toBe(true)
   })
+
+  test('should return an token if repository return ok', async () => {
+    const fakeData = {
+      username: 'valid_username',
+      password: 'valid_password'
+    }
+    const { sut } = makeSut()
+    const response = await sut.login(fakeData)
+    expect(response).toBe('valid_token')
+  })
+  
 })
