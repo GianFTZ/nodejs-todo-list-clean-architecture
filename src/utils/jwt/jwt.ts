@@ -17,7 +17,8 @@ export class Jwt {
       return { status: 300, user }
     })
     return {
-      status: 200,
+      // @ts-ignore
+      status: response.status,
       // @ts-ignore
       user: response.user
     }
