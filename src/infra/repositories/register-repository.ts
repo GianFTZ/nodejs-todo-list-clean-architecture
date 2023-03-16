@@ -8,7 +8,6 @@ import { IRegisterAdapter } from "../contracts/register-adapter";
 export class RegisterRepository implements IRegisterRepository {
   constructor(
     private readonly register: IRegisterAdapter,
-    private readonly jwt: any
   ){}
   async main(register: RegisterModel): Promise<Http.Response> {
     try {
