@@ -25,7 +25,7 @@ export default (router: Router) => {
   })
 }
 
-const factoryRegister = () => {
+const factoryRegister = () => { 
   const register = new PrismaRegister()
   const repository = new RegisterRepository(register)
   const service = new RegisterService(repository)
