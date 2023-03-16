@@ -14,14 +14,14 @@ export default (router: Router) => {
   // @register
   router.post('/user/register', async (req: Request, res) => {
     const { controller } = factoryRegister()
-    const httpRespose = await controller.handle(req)
-    res.status(httpRespose.status || 600).json(httpRespose.body)
+    const httpResponse = await controller.handle(req)
+    res.status(httpResponse.status || 600).json(httpResponse.body)
   })
   // @login
   router.post('/user/login', async (req: Request, res) => {
     const { controller } = factoryLogin()
-    const httpRespose = await controller.handle(req)
-    res.status(httpRespose.status || 600).json(httpRespose.body)
+    const httpResponse = await controller.handle(req)
+    res.status(httpResponse.status || 600).json(httpResponse.body)
   })
 }
 
