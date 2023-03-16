@@ -4,6 +4,7 @@ export namespace Http {
     body: any
   }
   export type Request = {
-    body: any
+    body: any,
+    headers?: any
   }
 }
