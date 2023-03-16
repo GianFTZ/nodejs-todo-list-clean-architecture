@@ -9,7 +9,7 @@ import { IAuthValidator } from "../contracts/auth-validator";
 export class LoginRepository implements ILoginRepository {
   constructor(
     private readonly authValidator: IAuthValidator,
-    private readonly jwt: any
+    private readonly jwt: any 
     ){}
   async main (login: LoginModel): Promise<Http.Response> {
     try {
