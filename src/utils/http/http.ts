@@ -3,4 +3,7 @@ export namespace Http {
     status: number
     body: any
   }
+  export type Request = {
+    body: any
+  }
 }
