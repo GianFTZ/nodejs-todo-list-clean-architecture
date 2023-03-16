@@ -28,4 +28,16 @@ describe('SignUp Controller', ()=> {
     })
     expect(response.status).toBe(400)
   })
+
+  test('should return 400 if password is not provided', async () => {
+    const fakeData = {
+      username: 'anonymous',
+      name: 'admin'
+    }
+    const sut = new SignUpController(new RegisterService(new RegisterRepository(new PrismaRegister())))
+    const response = await sut.handle({
+      body: fakeData
+    })
+    expect(response.status).toBe(400)
+  })
 })
