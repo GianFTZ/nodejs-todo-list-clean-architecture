@@ -18,8 +18,8 @@ yarn dev
 
 # Sobre a arquitetura:
 
-- architecture.md
+- [architecture.md](./architecture.md)
 
 # Sobre as rotas:
 
-- routes.md
+- [routes.md](./routes.md)
