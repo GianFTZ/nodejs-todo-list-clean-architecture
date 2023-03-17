@@ -7,19 +7,21 @@ import { CreateTodoRepository } from "../../infra/repositories/create-todo-repos
 import { DoneTodoRepository } from "../../infra/repositories/done-todo-repository";
 import { CreateTodoController } from "../../presentation/controllers/create-todo-controller";
 import { MarkTodoAsDoneController } from "../../presentation/controllers/markasdone-todo-controller";
+import { Status } from "../config/enum";
+
 
 export default(router: Router) => {
   // @create-to-do
   router.post('/todo', async (req, res) => {
     const { controller } = factoryCreate()
     const httpResponse = await controller.handle(req)
-    res.status(httpResponse.status || 600).json(httpResponse.body)
+    res.status(httpResponse.status || Status.UNEXPECTED_ROUTE_ERROR_STATUS).json(httpResponse.body)
   })
   // @mark-todo-as-done
   router.put('/todo', async (req, res) => {
     const { controller } = factoryDone()
     const httpResponse = await controller.handle(req)
-    res.status(httpResponse.status || 600).json(httpResponse.body)
+    res.status(httpResponse.status || Status.UNEXPECTED_ROUTE_ERROR_STATUS).json(httpResponse.body)
   })
 }
 

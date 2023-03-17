@@ -9,19 +9,20 @@ import { AuthValidator } from "../../infra/services/auth-validator";
 import { SignInController } from "../../presentation/controllers/signin-controller";
 import { SignUpController } from "../../presentation/controllers/signup-controller";
 import { Jwt } from "../../utils/jwt/jwt";
+import { Status } from "../config/enum";
 
 export default (router: Router) => {
   // @register
   router.post('/user/register', async (req: Request, res) => {
     const { controller } = factoryRegister()
     const httpResponse = await controller.handle(req)
-    res.status(httpResponse.status || 600).json(httpResponse.body)
+    res.status(httpResponse.status || Status.UNEXPECTED_ROUTE_ERROR_STATUS).json(httpResponse.body)
   })
   // @login
   router.post('/user/login', async (req: Request, res) => {
     const { controller } = factoryLogin()
     const httpResponse = await controller.handle(req)
-    res.status(httpResponse.status || 600).json(httpResponse.body)
+    res.status(httpResponse.status || Status.UNEXPECTED_ROUTE_ERROR_STATUS).json(httpResponse.body)
   })
 }
 
